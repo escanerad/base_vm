@@ -15,3 +15,22 @@
     echo Address=$ipaddress  >> /etc/systemd/network/25-wired.network
     echo Gateway=$gateway  >> /etc/systemd/network/25-wired.network
     echo DNS=$DNS  >> /etc/systemd/network/25-wired.network
+
+    #HOSTNAME
+    read -p 'Nom complet del servidor (amb domini): ' servidor
+    servidorant=$(cat /etc/hostname)
+    sed -i 's/'$servidorant'/'$servidor'/g' /etc/hostname
+
+    #RESUM
+    echo 'Host: ' $servidor
+    echo '====================================='
+    echo 'S´ha configurat: ' $iface0
+    echo '@ IP/NM :' $ipaddress
+    echo 'Gateway :' $gateway
+    echo 'DNS     :' $DNS
+    echo '====================================='
+    echo 'ÉS NECESSARI REINICIAR, PREMI INTRO'
+    read ok
+
+    #REINICIAR
+    sudo init 6
