@@ -19,7 +19,7 @@
     #HOSTNAME
     read -p 'Nom complet del servidor (amb domini): ' servidor
     servidorant=$(cat /etc/hostname)
-    sed -i 's/'$servidorant'/'$servidor'/g' /etc/hostname
+    sudo sed -i 's/'$servidorant'/'$servidor'/g' /etc/hostname
 
     #RESUM
     echo 'Host: ' $servidor
