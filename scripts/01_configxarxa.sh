@@ -7,6 +7,7 @@
     read -p 'Porta d´enllaç (Gateway) :' gateway
     read -p 'Servidor de Noms (DNS) :' DNS
     
+    sudo su
     sudo touch /etc/systemd/network/25-wired.network
     echo [MATCH] >> /etc/systemd/network/25-wired.network
     echo Name=$iface0  >> /etc/systemd/network/25-wired.network
