@@ -16,6 +16,7 @@
     sudo /opt/bitnami/ctlscript.sh stop apache
     
     sudo certbot certonly #Mode Standalone domini odoo.saas.escaner.ad
+    sudo chown -R bitnami:root /etc/letsencrypt
 
     sudo mv /opt/bitnami/apache2/conf/server.crt /opt/bitnami/apache2/conf/server.crt.old
     sudo mv /opt/bitnami/apache2/conf/server.key /opt/bitnami/apache2/conf/server.key.old
@@ -23,7 +24,7 @@
     sudo ln -s /etc/letsencrypt/live/$domini/privkey.pem /opt/bitnami/apache2/conf/server.key
     sudo ln -s /etc/letsencrypt/live/$domini/fullchain.pem /opt/bitnami/apache2/conf/server.crt
     sudo chown root:root /opt/bitnami/apache2/conf/server*
-    sudo chmod 600 /opt/bitnami/apache2/conf/server*
+    sudo chmod 755 /opt/bitnami/apache2/conf/server*
 
     #START APACHE SERVICE
     sudo /opt/bitnami/ctlscript.sh start apache
