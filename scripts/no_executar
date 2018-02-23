@@ -1,0 +1,51 @@
+    read 'Adreça de correu sortint: ' $correu
+    read 'Descripció en correu: ' $descripcio
+    sudo vi /opt/bitnami/apps/odoo/lib/odoo-10.*.egg/odoo/addons/mail/models/mail_mail.py
+    Inside the function "send" (look for "def send(" ), around line 278, you will find this block:
+
+
+
+                # build an RFC2822 email.message.Message object and send it without queuing 
+                res = None
+                for email in email_list:
+                    msg = IrMailServer.build_email(
+                        email_from=mail.email_from,
+                        email_to=email.get('email_to'),
+                        subject=mail.subject,
+                        [...some other stuff...]
+                        headers=headers)
+                    try:
+                        res = IrMailServer.send_email(msg, mail_server_id=mail.mail_server_id.id)
+
+
+Change the line email_from=mail.email_from . Replace "mail.email_from" by an e-mail address of your choice, like 'contact@mycompany.com'. You can even use a more fancy formatting here, to include a sender name, like 'My Sales Department <sales@mycompany.com>'.
+
+It should look like this: email_from='My Company <contact@mycompany.com>'
+
+Don't forget the single quotes.
+
+
+
+Then, alter the file /odoo/odoo-server/odoo/addons/base/ir/ir_mail_server.py
+
+
+
+Inside the function "send_email" (look for "def send_email"), around line 396 you will find:
+
+
+
+        smtp_from = from_rfc2822[-1]
+        email_to = message['To']
+        email_cc = message['Cc']
+        email_bcc = message['Bcc']
+
+
+Change smtp_from = from_rfc2822[-1] . Replace "from_rfc2822[-1]" by your address. Here you have to use just the e-mail address, like 'contact@mycompany.com'  . Don't include < >, spaces nor any non-ASCII characters.
+
+It should look like: smtp_from = 'contact@mycompany.com'
+
+
+
+That's it. After saving these files, restart Odoo's service (sudo service odoo-server restart) and try again.
+
+This was tested on an Odoo 10 installation, on a Ubuntu Server 16.04 (Xenial).  I have installed it using this great script from Yenthe: https://www.odoo.yenthevg.com/installing-odoo-10-ubuntu-16-04
