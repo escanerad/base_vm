@@ -1,0 +1,14 @@
+#canviar a 
+
+Require all denied
+Require ip 194.158.92.191
+
+   <IfVersion < 2.3 >
+        Order allow,deny
+        Allow from 194.158.92.191
+        Satisfy all
+    </IfVersion>
+    <IfVersion >= 2.3>
+        Require ip 194.158.92.191
+    </IfVersion>
+    ErrorDocument 403 "For security reasons, this URL is only accessible from XX.XX.XX.XX"
