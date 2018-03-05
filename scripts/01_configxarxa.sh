@@ -23,12 +23,13 @@
     echo 'Host: ' $servidor
     echo '====================================='
     echo 'S´ha configurat: ' $iface0
-    #echo '@ IP/NM :' $ipaddress
-    #echo 'Gateway :' $gateway
-    #echo 'DNS     :' $DNS
+    echo '@ IP/NM :' $ipaddress
+    echo 'Gateway :' $gateway
+    echo 'DNS     :' $DNS
     echo '====================================='
     echo 'ÉS NECESSARI REINICIAR, PREMI INTRO'
+    echo '====================================='
     read ok
 
     #REINICIAR
-    #sudo init 6
+    sudo init 6
