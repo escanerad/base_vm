@@ -25,6 +25,11 @@
     sudo ln -s /etc/letsencrypt/live/$domini/fullchain.pem /opt/bitnami/apache2/conf/server.crt
     sudo chown root:root /opt/bitnami/apache2/conf/server*
     sudo chmod 755 /opt/bitnami/apache2/conf/server*
+    
+    sudo ls -l /etc/letsencrypt/$domini
+    read 'ESPERANT INTRO ...'
+    sudo ls -l /opt/bitnami/apache2/conf
+    read 'ESPERANT INTRO ...'
 
     #START APACHE SERVICE
     sudo /opt/bitnami/ctlscript.sh start apache
