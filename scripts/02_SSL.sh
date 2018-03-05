@@ -26,7 +26,7 @@
     sudo chown root:root /opt/bitnami/apache2/conf/server*
     sudo chmod 755 /opt/bitnami/apache2/conf/server*
     
-    sudo ls -l /etc/letsencrypt/$domini
+    sudo ls -l /etc/letsencrypt/live/$domini
     read 'ESPERANT INTRO ...'
     sudo ls -l /opt/bitnami/apache2/conf
     read 'ESPERANT INTRO ...'
@@ -46,7 +46,7 @@
     # Eliminar el RewriteEngine de la secció SSL 
     sudo vi /opt/bitnami/apache2/conf/bitnami/bitnami.conf
     sudo sed -i '/\RewriteEngine On/a\  RewriteCond \%\{HTTPS\} \!\=on' /opt/bitnami/apache2/conf/bitnami/bitnami.conf
-    sudo sed -i '/\RewriteCond \%{HTTPS} \!\=on/a\  RewriteRule \^\/\(\.\*\) https\:\/\/\%{SERVER\_NAME}\$1 \[R\,L\]' /opt/bitnami/apache2/conf/bitnami/bitnami.conf
+    sudo sed -i '/\RewriteCond \%{HTTPS} \!\=on/a\  RewriteRule \^\/\(\.\*\) https\:\/\/\%{SERVER\_NAME}\/\$1 \[R\,L\]' /opt/bitnami/apache2/conf/bitnami/bitnami.conf
     
     #RESTART APACHE SERVICE
     sudo /opt/bitnami/ctlscript.sh restart apache
