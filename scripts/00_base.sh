@@ -19,11 +19,13 @@
         sudo /opt/bitnami/apps/odoo/bnconfig --disable_banner 1
         sudo /opt/bitnami/ctlscript.sh restart apache
 
-    echo '====================================='
-    echo 'ÉS NECESSARI REINICIAR, PREMI INTRO'
-    echo '====================================='
-    read ok
+        sudo rm /home/bitnami/change_password.sh
+        
+    #echo '====================================='
+    #echo 'ÉS NECESSARI REINICIAR, PREMI INTRO'
+    #echo '====================================='
+    #read ok
 
     #REINICIAR
-    sudo init 6
+    #sudo init 6
     
