@@ -1,5 +1,4 @@
-    read 'Adreça de correu sortint: ' $correu
-    read 'Descripció en correu: ' $descripcio
+
     sudo vi /opt/bitnami/apps/odoo/lib/odoo-10.*.egg/odoo/addons/mail/models/mail_mail.py
     Inside the function "send" (look for "def send(" ), around line 278, you will find this block:
 

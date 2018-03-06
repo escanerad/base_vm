@@ -18,10 +18,16 @@
     sudo cp /home/bitnami/base_VM/fonts/BreuerText/*.ttf /usr/share/fonts/truetype/breuertext/
 
     #Treure banner de la consola
-    sudo mv /opt/bitnami/var/data /opt/bitnami/var/data_original
-    sudo mv /opt/bitnami/scripts/init/welcome_message /opt/bitnami/scripts/init/welcome_message_original
-    sudo mv /opt/bitnami/scripts/init/welcome_message_reload /opt/bitnami/scripts/init/welcome_message__reload_original
-    sudo mv /opt/bitnami/scripts/init/update_welcome_file /opt/bitnami/scripts/init/update_welcome_file_original
+    #sudo mv /opt/bitnami/var/data /opt/bitnami/var/data_original
+    #sudo mv /opt/bitnami/scripts/init/welcome_message /opt/bitnami/scripts/init/welcome_message_original
+    #sudo mv /opt/bitnami/scripts/init/welcome_message_reload /opt/bitnami/scripts/init/welcome_message__reload_original
+    #sudo mv /opt/bitnami/scripts/init/update_welcome_file /opt/bitnami/scripts/init/update_welcome_file_original
 
-    
+
+    # ACcions configurar correu electrònic
+    #read -p 'Adreça de correu sortint: ' correu
+    #read -p 'Descripció en correu: ' descripcio
+    #sudo cp /opt/bitnami/apps/odoo/odoo-10.*.egg/addons/mail/models/mail_mail.py /opt/bitnami/apps/odoo/odoo-10.*.egg/addons/mail/models/mail_mail.py.bak
+    #sudo sed -i 's/email_from\=mail\.email_from/email_from\="'$descripcio' <'$correu'>/g' /opt/bitnami/apps/odoo/odoo-10.*.egg/addons/mail/models/mail_mail.py
+
 #FI ACCIONS VM ODOO
