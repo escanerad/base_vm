@@ -24,10 +24,12 @@
     #sudo mv /opt/bitnami/scripts/init/update_welcome_file /opt/bitnami/scripts/init/update_welcome_file_original
 
 
-    # ACcions configurar correu electrònic
+    # Accions configurar correu electrònic
     #read -p 'Adreça de correu sortint: ' correu
     #read -p 'Descripció en correu: ' descripcio
     #sudo cp /opt/bitnami/apps/odoo/odoo-10.*.egg/addons/mail/models/mail_mail.py /opt/bitnami/apps/odoo/odoo-10.*.egg/addons/mail/models/mail_mail.py.bak
     #sudo sed -i 's/email_from\=mail\.email_from/email_from\="'$descripcio' <'$correu'>/g' /opt/bitnami/apps/odoo/odoo-10.*.egg/addons/mail/models/mail_mail.py
 
+    #UnicodeCSV
+    sudo pip install -e git://github.com/jdunck/python-unicodecsv.git#egg=unicodecsv
 #FI ACCIONS VM ODOO
