@@ -25,9 +25,9 @@
     #RESUM
     echo 'Host: ' $servidor
     echo '====================================='
-    echo 'S´ha configurat: ' $iface0
+    echo 'S´ha configurat: ' $iface0 'Xarxa Servidors'
     echo '@ IP/NM :' $ipaddress
-    echo 'S´ha configurat: ' $iface1
+    echo 'S´ha configurat: ' $iface1 'NAT'
     echo '====================================='
     echo 'ÉS NECESSARI REINICIAR, PREMI INTRO'
     echo '====================================='
