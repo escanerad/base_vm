@@ -1,19 +1,22 @@
 ## CONFIGURACIÓ
     #XARXA - OBTENIR INTERFICIE
-    iface0=$(ip link show|grep ^[0-9]| grep -v lo|cut -f2 -d":"|sed 's/^[ \t]*//')
+    iface0=$(ip link show|grep ^[0-9]| grep -v lo|cut -f2 -d":"|grep 3 |sed 's/^[ \t]*//')
+    iface1=$(ip link show|grep ^[0-9]| grep -v lo|cut -f2 -d":"|grep 8 |sed 's/^[ \t]*//')
     echo Interface: $iface0
     echo ========================
     read -p 'Adreça IP(XXX.XXX.XXX.XXX/XX) :' ipaddress
-    read -p 'Porta d´enllaç (Gateway) :' gateway
-    read -p 'Servidor de Noms (DNS) :' DNS
-
+    
+    #CONFIGURAR XARXA SERVIDORS
     sudo cp /etc/systemd/network/99-dhcp.network /etc/systemd/network/25-wired.network
     sudo sed -i 's/Name=e\*/Name='$iface0'/g' /etc/systemd/network/25-wired.network
     sudo sed -i '\/DHCP/d' /etc/systemd/network/25-wired.network
     sudo sed -i '\/\[Network\]/a\Address\='$ipaddress /etc/systemd/network/25-wired.network
-    sudo sed -i '\/Address/a\Gateway\='$gateway /etc/systemd/network/25-wired.network
-    sudo sed -i '\/\Gateway/a\DNS\='$DNS /etc/systemd/network/25-wired.network
+    #CONFIGURAR INTERFICIE NAT PER ACCES A INTERNET
+    sudo cp /etc/systemd/network/99-dhcp.network /etc/systemd/network/26-nat.network
+    sudo sed -i 's/Name=e\*/Name='$iface1'/g' /etc/systemd/network/26-nat.network
 
+    sudo mv /etc/systemd/network/99-dhcp.network /etc/systemd/network/bak.99-dhcp.network
+    
     #HOSTNAME
     read -p 'Nom complet del servidor (amb domini): ' servidor
     servidorant=$(cat /etc/hostname)
@@ -24,12 +27,11 @@
     echo '====================================='
     echo 'S´ha configurat: ' $iface0
     echo '@ IP/NM :' $ipaddress
-    echo 'Gateway :' $gateway
-    echo 'DNS     :' $DNS
+    echo 'S´ha configurat: ' $iface1
     echo '====================================='
     echo 'ÉS NECESSARI REINICIAR, PREMI INTRO'
     echo '====================================='
     read ok
 
     #REINICIAR
-    sudo init 6
+    #sudo init 6
