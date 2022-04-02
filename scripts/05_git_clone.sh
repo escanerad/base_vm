@@ -9,7 +9,7 @@ sudo cp -r l10n-spain/l10n_es_partner* ../prod
 sudo cp -r l10n-spain/l10n_es_account_* ../prod
 
 #MÒDUL DE CONTRACTES
-sudo git clone -b 11.0 https://github.com/OCA/contract
+sudo git clone -b 14.0 https://github.com/OCA/contract
 sudo cp -r contract/contract ../prod/
 
 #DEPENDENCIES DEL MODUL ANTERIOR
