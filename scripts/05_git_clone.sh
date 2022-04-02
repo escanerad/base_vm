@@ -1,8 +1,10 @@
 #DIRECTORI TEMPORAL DE CLONATGE
+sudo mkdir /home/bitnami/addons
+sudo mkdir /home/bitnami/addons/prod
 sudo mkdir /home/bitnami/escaner/addons/repo
 cd /home/bitnami/escaner/addons/repo
 #LOCALITZACIÓ ESPANYOLA
-sudo git clone -b 11.0 https://github.com/OCA/l10n-spain
+sudo git clone -b 14.0 https://github.com/OCA/l10n-spain
 sudo cp -r l10n-spain/l10n_es_partner* ../prod
 sudo cp -r l10n-spain/l10n_es_account_* ../prod
 
