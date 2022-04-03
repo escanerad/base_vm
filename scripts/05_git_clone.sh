@@ -1,13 +1,15 @@
 #DIRECTORI TEMPORAL DE CLONATGE
-sudo mkdir /home/bitnami/addons
-sudo mkdir /home/bitnami/addons/prod
-sudo mkdir /home/bitnami/escaner/addons/repo
-cd /home/bitnami/escaner/addons/repo
+sudo mkdir /home/bitnami/escanerad/addons
+sudo mkdir /home/bitnami/escanerad/addons/prod
+sudo mkdir /home/bitnami/escanerad/addons/repo
+cd /home/bitnami/escanerad/addons/repo
 #PRE-REQUISITS
 sudo git clone -b 14.0 https://github.com/OCA/community-data-files
 sudo cp -r community-data-files/base_bank_from_iban ../prod
 sudo git clone -b 14.0 https://github.com/OCA/account-financial-tools
 sudo cp -r account-financial-tools/account_asset_management ../prod
+sudo git clone -b 14.0 https://github.com/OCA/account-invoice-reporting
+sudo cp -r account-invoice-reporting/account_report_due_list ../prod
 sudo git clone -b 14.0 https://github.com/OCA/reporting-engine
 sudo cp -r reporting-engine/report_xlsx ../prod
 sudo cp -r reporting-engine/report_xlsx_helper ../prod
