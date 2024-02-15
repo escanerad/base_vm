@@ -7,7 +7,7 @@
         
         #AFEGIR REPOSITORIS
         # PER TEMES DE CERTBOT - SSL
-        sudo echo "deb http://ftp.debian.org/debian stretch-backports main" >> /etc/apt/sources.list
+        #sudo echo "deb http://ftp.debian.org/debian bullseye-backports main" >> /etc/apt/sources.list
         sudo apt-get update
 
     ## PERSONALITZACIONS BITNAMI -> ESCANER
@@ -16,10 +16,10 @@
         sudo update-grub
 
         #DESACTIVAR BANNER EN PAGINA
-        sudo /opt/bitnami/apps/odoo/bnconfig --disable_banner 1
-        sudo /opt/bitnami/ctlscript.sh restart apache
+        #sudo /opt/bitnami/apps/odoo/bnconfig --disable_banner 1
+        #sudo /opt/bitnami/ctlscript.sh restart apache
 
-        sudo rm /home/bitnami/change-password.sh
+        #sudo rm /home/bitnami/change-password.sh
         
     #echo '====================================='
     #echo 'ÉS NECESSARI REINICIAR, PREMI INTRO'
