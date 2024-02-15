@@ -1,3 +1,6 @@
+    #INSTALAR GIT PREVIAMENT
+    #sudo apt-get update && sudo apt-get install git
+    
     #PERSONALITZACIONS S.O.
         #CANVIAR TECLAT A ESPAÑOL
         sudo apt-get install console-setup keyboard-configuration
